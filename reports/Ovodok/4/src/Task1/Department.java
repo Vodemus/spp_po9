@@ -29,6 +29,15 @@ public class Department {
         System.out.println("Total employees in the " + name + " department: " + getTotalEmployees());
     }
 
+    public Post getPost(String name) {
+        for(Post post: posts){
+            if (post.getName().equals(name)){
+                return post;
+            }
+        }
+        return null;
+    }
+
     public class Post {
         private String name;
         private List<String> employees;
@@ -63,10 +72,10 @@ public class Department {
         itDepartment.addPost("Software Developer");
         itDepartment.addPost("System Analyst");
 
-        itDepartment.posts.get(0).addEmployee("Vadim");
-        itDepartment.posts.get(0).addEmployee("Vlad");
+        itDepartment.getPost("Software Developer").addEmployee("Vadim");
+        itDepartment.getPost("Software Developer").addEmployee("Vlad");
 
-        itDepartment.posts.get(1).addEmployee("Dima");
+        itDepartment.getPost("System Analyst").addEmployee("Dima");
 
         itDepartment.displayEmployees();
 
